@@ -1,0 +1,16 @@
+provider "aws" {
+  region = "us-east-1"  # Change this to your desired AWS region
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"  # Change this to your desired VPC CIDR block
+
+  tags = {
+    Name = "MyVPC"  # Replace this with your desired VPC name
+  }
+}
+
+output "vpc_id" {
+  value = aws_vpc.main.id
+}
+
